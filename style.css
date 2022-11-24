@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-image: url("./image/word-map.png");
+  background-size: cover;
+  /* background-position: center; */
+  display: grid;
+  justify-content: center;
+  grid-template-areas:
+    "massege guess"
+    "info guess";
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgb(4, 4, 190);
+  justify-items: center;
+}
+h1 {
+  background-color: whitesmoke;
+  text-shadow: 1px 1px 6px grey;
+}
+.information,
+.massege {
+  text-align: center;
+  border: 1px solid white;
+  background-color: aliceblue;
+  width: 300px;
+  /* height: 165px; */
+  border-radius: 3px;
+}
+.massege {
+  margin-top: 100px;
+  grid-area: massege;
+}
+.massege > * {
+  display: block;
+  width: 100%;
+}
+.information {
+  grid-area: info;
+  padding: 20px;
+  margin: 5px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  border: 1px solid rgb(211, 228, 228);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+.massege,
+.information > * {
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid rgb(211, 228, 228);
+}
+label {
+  background-color: aliceblue;
+  border: none;
+}
+button {
+  background-color: #2b65a2; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+input {
+  color: rgb(4, 4, 190);
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid rgb(211, 228, 228);
+}
+input:focus {
+  border: 1px solid #2b65a2;
+}
+.country {
+  background-color: whitesmoke;
+}
+.gussedName {
+  grid-area: guess;
+  align-self: flex-end;
+  display: block;
+  
+}
+h3 {
+  color: white;
+  margin: 1px;
+}
+#guessed{
+  width: 50px;
+  height: 266px;
+  background-color: white;
+  text-align: center;
+  margin-left: 34px;
+}
