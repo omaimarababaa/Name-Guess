@@ -11,10 +11,10 @@ function nameGuessed() {
   if (allName) {
     for (let k = 0; k < allName.length; k++) {
       console.log(allName[k]);
-      let spanN=document.createElement('span');
+      let spanN = document.createElement("span");
       let textNote = document.createTextNode(allName[0]);
-     spanN.appendChild(textNote);
-     guessedN.appendChild(spanN);
+      spanN.appendChild(textNote);
+      guessedN.appendChild(spanN);
     }
   }
 }
@@ -27,24 +27,29 @@ btnApply.addEventListener("click", (e) => {
   let inputGender = document.querySelector("#gender");
   let inputFlage = document.querySelector("#country");
   let imgFlag = document.createElement("img");
-  let arrayAll=[];
+
   function noSpaceText(name) {
+    let arrayAll = [];
     if (name == "" && name.keyCode == 32) {
+      alert("Space is not allowed");
       return false;
     }
     arrayAll.push(inputName);
+
     return true;
   }
   //----------Check---------------------
   if (noSpaceText(inputName)) {
-    let myAge = fetch(agifyURL + inputName).then((response)=>response.json());
-    let myGender = fetch(genderizesURL + inputName).then((response)=>response.json());
+    let myAge = fetch(agifyURL + inputName).then((response) => response.json());
+    let myGender = fetch(genderizesURL + inputName).then((response) =>
+      response.json()
+    );
     //--------Get Age and Gender---------------------------
     Promise.all([myAge, myGender]).then((values) => {
-     inputAge.value = values[0].age;
-     inputGender.value = values[1].gender;
+      inputAge.value = values[0].age;
+      inputGender.value = values[1].gender;
     });
-   
+
     //------------Get Flag-------------------------------
     let myNa = fetch(nationalizeURL + inputName);
     myNa
@@ -54,10 +59,8 @@ btnApply.addEventListener("click", (e) => {
         }
       })
       .then((json) => {
-        console.log(json.country);
         let ArryCon = json.country;
         const codes = ArryCon.map((element) => {
-          console.log(element.country_id);
           return element.country_id;
         });
         console.log(codes);
@@ -65,7 +68,6 @@ btnApply.addEventListener("click", (e) => {
       })
       .then((code) => {
         inputFlage.replaceChildren();
-        console.log(code);
         code.forEach((element) => {
           let flageData = fetch(flagURL + element);
           flageData
@@ -82,13 +84,11 @@ btnApply.addEventListener("click", (e) => {
               imgFlag.setAttribute("width", "75");
               imgFlag.setAttribute("height", "25");
               inputFlage.appendChild(imgFlag);
-              console.log(srcImg);
             });
         });
       });
-
   }
-  addToLocalS(arrayAll) 
+  addToLocalS(arrayAll);
 });
 //----------Add in Local--------------------
 function addToLocalS(names) {
