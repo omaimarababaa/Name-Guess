@@ -4,6 +4,7 @@ let agifyURL = " https://api.agify.io?name=";
 let genderizesURL = "https://api.genderize.io?name=";
 let nationalizeURL = "https://api.nationalize.io?name=";
 let flagURL = "https://restcountries.com/v3.1/alpha?codes=";
+let arrayAll = [];
 //----------------------------------------------------------
 function nameGuessed() {
   let allName = getItemFeomLocalS();
@@ -12,13 +13,14 @@ function nameGuessed() {
     for (let k = 0; k < allName.length; k++) {
       console.log(allName[k]);
       let spanN = document.createElement("span");
-      let textNote = document.createTextNode(allName[0]);
+      let textNote = document.createTextNode(allName[k]);
       spanN.appendChild(textNote);
       guessedN.appendChild(spanN);
     }
   }
 }
 nameGuessed();
+
 //--------------Click button Apply----------------
 btnApply.addEventListener("click", (e) => {
   e.preventDefault();
@@ -27,9 +29,8 @@ btnApply.addEventListener("click", (e) => {
   let inputGender = document.querySelector("#gender");
   let inputFlage = document.querySelector("#country");
   let imgFlag = document.createElement("img");
-
+ 
   function noSpaceText(name) {
-    let arrayAll = [];
     if (name == "" && name.keyCode == 32) {
       alert("Space is not allowed");
       return false;
@@ -94,6 +95,7 @@ btnApply.addEventListener("click", (e) => {
 function addToLocalS(names) {
   window.localStorage.setItem("NameGuess", JSON.stringify(names));
 }
+
 //-------------Get from Local------------------
 function getItemFeomLocalS() {
   let data = window.localStorage.getItem("NameGuess");

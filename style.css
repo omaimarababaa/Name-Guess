@@ -1,28 +1,37 @@
+:root {
+  --blue: rgb(4, 4, 190);
+  --border:rgb(211, 228, 228);
+  --borderblue:#2b65a2;
+  --white: white;
+  --whitesmoke:whitesmoke;
+  --styleFont:"Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  --gray:gray;
+  --aliceblue:aliceblue;
+}
 * {
   box-sizing: border-box;
 }
 body {
   background-image: url("./image/word-map.png");
   background-size: cover;
-  /* background-position: center; */
   display: grid;
   justify-content: center;
   grid-template-areas:
     "massege guess"
     "info guess";
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: rgb(4, 4, 190);
+  font-family:var(--styleFont);
+  color:var(--blue);
   justify-items: center;
 }
 h1 {
-  background-color: whitesmoke;
-  text-shadow: 1px 1px 6px grey;
+  background-color: var(--whitesmoke);
+  text-shadow: 1px 1px 6px var(--gray);
 }
 .information,
 .massege {
   text-align: center;
-  border: 1px solid white;
-  background-color: aliceblue;
+  border: 1px solid var(--white);
+  background-color: var(--aliceblue);
   width: 300px;
   /* height: 165px; */
   border-radius: 3px;
@@ -43,7 +52,7 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-content: center;
-  border: 1px solid rgb(211, 228, 228);
+  border: 1px solid var(--border);
 }
 form {
   display: flex;
@@ -55,48 +64,52 @@ form {
 .information > * {
   padding: 5px;
   font-size: 15px;
-  border: 1px solid rgb(211, 228, 228);
+  border: 1px solid var(--border);
 }
 label {
-  background-color: aliceblue;
+  background-color: var(--aliceblue);
   border: none;
 }
 button {
-  background-color: #2b65a2; /* Green */
+  background-color: var(--borderblue); /* Green */
   border: none;
-  color: white;
+  color: var(--white);
   padding: 10px 30px;
   border-radius: 3px;
   cursor: pointer;
 }
 input {
-  color: rgb(4, 4, 190);
+  color:var(--blue);
   border: none;
   border-radius: 3px;
   padding: 5px;
   border-radius: 3px;
-  border: 1px solid rgb(211, 228, 228);
+  border: 1px solid var(--border);
 }
 input:focus {
-  border: 1px solid #2b65a2;
+  border: 1px solid var(--borderblue);
 }
 .country {
-  background-color: whitesmoke;
+  background-color: var(--whitesmoke);
 }
 .gussedName {
   grid-area: guess;
   align-self: flex-end;
-  display: block;
+  display: flex;
+  flex-direction: column;
   
 }
 h3 {
-  color: white;
+  color: var(--white);
   margin: 1px;
 }
 #guessed{
-  width: 50px;
+  width: 60px;
   height: 266px;
-  background-color: white;
+  background-color: var(--white);
   text-align: center;
   margin-left: 34px;
+}
+span{
+  display: block;
 }
